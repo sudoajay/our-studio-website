@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import PortfolioDetail from '../components/PortfolioDetail'
 import Data from '../json/landingPage.json'
 import { LandingPageData } from '../types/types'

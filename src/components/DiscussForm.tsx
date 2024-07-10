@@ -1,6 +1,5 @@
 import React, { ChangeEvent } from 'react'
 import { Fade } from 'react-awesome-reveal'
-import * as emailjs from 'emailjs-com'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -19,15 +18,15 @@ interface DiscussFormProps {
   resetForm: () => void
 }
 
-const DiscussForm: React.FC<DiscussFormProps> = ({ data, onChange, resetForm }) => {
+const DiscussForm: React.FC<DiscussFormProps> = ({ data, onChange }) => {
   const submitEmail = () => {
     const { name, company, email, phone, projectIdea } = data
 
-    const templateParams = {
-      from_name: `${name} - ${company} ( ${phone} - ${email} )`,
-      to_name: 'Racxstudio',
-      message: projectIdea
-    }
+    // const templateParams = {
+    //   from_name: `${name} - ${company} ( ${phone} - ${email} )`,
+    //   to_name: 'Racxstudio',
+    //   message: projectIdea
+    // }
 
     if (name !== '' && company !== '' && email !== '' && phone !== '' && projectIdea !== '') {
       // emailjs

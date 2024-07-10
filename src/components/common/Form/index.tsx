@@ -43,6 +43,7 @@ const Form: React.FC<FormProps> = ({
     <div className="flex flex-col mb-6 mx-2 lg:mx-5">
       {type === 'textarea' ? (
         <textarea
+          id={id}
           name={name}
           placeholder={placeholder}
           value={value as string}
