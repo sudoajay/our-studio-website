@@ -1,17 +1,19 @@
-import { Route, Routes, HashRouter } from 'react-router-dom'
+import { Route, Routes, BrowserRouter } from 'react-router-dom'
+import { lazy } from 'react'
 
+// hoc
+import withLazyComponent from '../hoc/withLazyComponent'
 // components
 import LayoutDefault from '../components/layout/LayoutDefault'
 
-// get screens
-import LandingPage from '../screens/LandingPage'
-import ProjectPage from '../screens/ProjectPage'
-import NotFoundPage from '../screens/NotFoundPage'
-import TeamPage from '../screens/TeamPage'
-import DiscussProjectPage from '../screens/DiscussProjectPage'
+const LandingPage = withLazyComponent(lazy(() => import('../screens/LandingPage')))
+const ProjectPage = withLazyComponent(lazy(() => import('../screens/ProjectPage')))
+const NotFoundPage = withLazyComponent(lazy(() => import('../screens/NotFoundPage')))
+const TeamPage = withLazyComponent(lazy(() => import('../screens/TeamPage')))
+const DiscussProjectPage = withLazyComponent(lazy(() => import('../screens/DiscussProjectPage')))
 
 const PublicRoutes = (): JSX.Element => (
-  <HashRouter>
+  <BrowserRouter>
     <Routes>
       <Route
         path="/"
@@ -48,7 +50,7 @@ const PublicRoutes = (): JSX.Element => (
       />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
-  </HashRouter>
+  </BrowserRouter>
 )
 
 export default PublicRoutes
